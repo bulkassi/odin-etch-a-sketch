@@ -3,3 +3,7 @@
   width: 840px;
   border: 2px solid black;
 }
+
+.visited {
+  background-color: grey;
+}
