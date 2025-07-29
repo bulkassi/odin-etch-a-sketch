@@ -2,6 +2,13 @@
   height: 840px;
   width: 840px;
   border: 2px solid black;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.grid-item {
+  height: 50%;
+  width: 50%;
 }
 
 .visited {

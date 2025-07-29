@@ -1,7 +1,8 @@
 const gridContainer = document.querySelector("#grid-container");
 
 function hoveredOver(e) {
-  e.target.classList.add("visited");
+  if (e.target.classList.contains("grid-item"))
+    e.target.classList.add("visited");
 }
 
 gridContainer.addEventListener("mousemove", hoveredOver);
