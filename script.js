@@ -1,4 +1,6 @@
 const gridContainer = document.querySelector("#grid-container");
+const newGridInputBox = document.querySelector("#squares-input");
+const newGridButton = document.querySelector("#squares-apply");
 const messageParagraph = document.querySelector("#message");
 
 function hoveredOver(e) {
@@ -37,4 +39,10 @@ function createGrid(squaresPerSide) {
 }
 
 gridContainer.addEventListener("mouseover", hoveredOver);
+
+newGridButton.addEventListener("click", (e) => {
+  deleteGrid();
+  createGrid(newGridInputBox.value);
+});
+
 createGrid(10);
