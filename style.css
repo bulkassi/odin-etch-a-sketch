@@ -15,9 +15,6 @@ body {
 .grid-item {
   height: 50%;
   width: 50%;
-}
-
-.visited {
   background-color: grey;
 }
 

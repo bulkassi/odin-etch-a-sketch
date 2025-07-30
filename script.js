@@ -5,7 +5,7 @@ const messageParagraph = document.querySelector("#message");
 
 function hoveredOver(e) {
   if (e.target.classList.contains("grid-item"))
-    e.target.classList.add("visited");
+    e.target.style.opacity = +e.target.style.opacity + 0.1;
 }
 
 function deleteGrid() {
@@ -27,6 +27,7 @@ function createGrid(squaresPerSide) {
   const gridItem = document.createElement("div");
   gridItem.style.height = gridItemHeight + "%";
   gridItem.style.width = gridItemWidth + "%";
+  gridItem.style.opacity = 0;
   gridItem.classList.add("grid-item");
 
   const gridItemsAmount = squaresPerSide ** 2;
