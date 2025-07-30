@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector("#grid-container");
+const messageParagraph = document.querySelector("#message");
 
 function hoveredOver(e) {
   if (e.target.classList.contains("grid-item"))
@@ -6,12 +7,18 @@ function hoveredOver(e) {
 }
 
 function deleteGrid() {
+  messageParagraph.textContent = "Deleting grid...";
+
   while (gridContainer.firstChild) {
     gridContainer.removeChild(gridContainer.firstChild);
   }
+
+  messageParagraph.textContent = "Old grid deleted.";
 }
 
 function createGrid(squaresPerSide) {
+  messageParagraph.textContent = "Creating new grid...";
+
   const gridItemHeight = 100 / squaresPerSide;
   const gridItemWidth = 100 / squaresPerSide;
 
@@ -25,8 +32,9 @@ function createGrid(squaresPerSide) {
   for (let i = 0; i < gridItemsAmount; i++) {
     gridContainer.appendChild(gridItem.cloneNode());
   }
+
+  messageParagraph.textContent = "New grid created!";
 }
 
-gridContainer.addEventListener("mousemove", hoveredOver);
-deleteGrid();
+gridContainer.addEventListener("mouseover", hoveredOver);
 createGrid(10);

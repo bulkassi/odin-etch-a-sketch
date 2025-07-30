@@ -1,3 +1,9 @@
+body {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
+
 #grid-container {
   height: 840px;
   width: 840px;
@@ -13,4 +19,8 @@
 
 .visited {
   background-color: grey;
+}
+
+#settings {
+  padding: 0 16px;
 }
