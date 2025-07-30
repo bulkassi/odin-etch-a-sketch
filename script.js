@@ -2,6 +2,7 @@ const gridContainer = document.querySelector("#grid-container");
 const newGridInputBox = document.querySelector("#squares-input");
 const newGridButton = document.querySelector("#squares-apply");
 const messageParagraph = document.querySelector("#message");
+const noteMessageParagraph = document.querySelector("#note-message");
 
 function hoveredOver(e) {
   if (e.target.classList.contains("grid-item"))
@@ -55,6 +56,17 @@ gridContainer.addEventListener("mouseover", hoveredOver);
 
 newGridButton.addEventListener("click", (e) => {
   deleteGrid();
+  if (newGridInputBox.value < 0) {
+    noteMessageParagraph.textContent =
+      "NOTE: there must be at least 1 square per side inputed!";
+    newGridInputBox.value = 1;
+  } else if (newGridInputBox.value > 100) {
+    noteMessageParagraph.textContent =
+      "NOTE: there must be at most 100 squares per side inputed!";
+    newGridInputBox.value = 100;
+  } else {
+    noteMessageParagraph.textContent = "";
+  }
   createGrid(newGridInputBox.value);
 });
 
