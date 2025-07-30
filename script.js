@@ -33,7 +33,19 @@ function createGrid(squaresPerSide) {
   const gridItemsAmount = squaresPerSide ** 2;
   console.log(gridItemsAmount);
   for (let i = 0; i < gridItemsAmount; i++) {
-    gridContainer.appendChild(gridItem.cloneNode());
+    // There are 256 ** 3 possible rgb codes for colors
+    let randomNumber = Math.floor(Math.random() * 256 ** 3);
+    let RCode = randomNumber % 256;
+    randomNumber = Math.floor(randomNumber / 256);
+    let GCode = randomNumber % 256;
+    randomNumber = Math.floor(randomNumber / 256);
+    let BCode = randomNumber % 256;
+
+    let newGridItem = gridItem.cloneNode();
+    newGridItem.style.backgroundColor =
+      "rgb(" + RCode + ", " + GCode + ", " + BCode + ")";
+
+    gridContainer.appendChild(newGridItem);
   }
 
   messageParagraph.textContent = "New grid created!";
